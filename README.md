@@ -43,11 +43,11 @@ Rails.application.routes.draw do
   post '/conversations/:id/messages', to: 'messages#create' # Public sent message
 
   scope :admin do
-    put '/conversations/mark_seen', to: 'conversations#mark_seen' # mark the chat that admin seen it
+    put '/conversations/:id/mark_seen', to: 'conversations#mark_seen' # mark the chat that admin seen it
     get '/conversations', to: 'conversations#index' # get all chat
     get '/conversations/:id/messages', to: 'messages#index' # get messages by chat(conversations)
     post '/conversations/:id/messages', to: 'messages#create' # admin response to the chat
-    put '/conversations/closed', to: 'conversations#closed' # admin closed the conversation.
+    put '/conversations/:id/closed', to: 'conversations#closed' # admin closed the conversation.
   end
 end
 ```
